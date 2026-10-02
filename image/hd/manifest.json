@@ -1,0 +1,957 @@
+{
+  "tileSize": 144,
+  "logicalTileSize": 36,
+  "scale": 4,
+  "sheets": [
+    {
+      "file": "1.png",
+      "columns": 3,
+      "rows": 12,
+      "width": 432,
+      "height": 1728,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "names": [
+            "Demon.E.0"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "names": [
+            "AppleRotten.0"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "names": [
+            "PFlower.digest.0",
+            "PFlower.open.3"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "names": [
+            "Demon.E.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "names": [
+            "AppleRotten.1"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "names": [
+            "PFlower.open.2"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "names": [
+            "Demon.E.2"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "names": [
+            "Bomb.normal"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "names": [
+            "PFlower.open.1"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "names": [
+            "Demon.S.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "names": [
+            "Bomb.ticking.0"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "names": [
+            "PFlower.open.0"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 4,
+          "names": [
+            "Demon.S.0"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 4,
+          "names": [
+            "Bomb.ticking.1"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "names": [
+            "PFlower.digest.4"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 5,
+          "names": [
+            "Demon.S.2"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 5,
+          "names": [
+            "Crystal.0"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 5,
+          "names": [
+            "PFlower.digest.3"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 6,
+          "names": [
+            "Demon.N.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "names": [
+            "Crystal.1"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 6,
+          "names": [
+            "PFlower.digest.2"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 7,
+          "names": [
+            "Demon.N.0"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 7,
+          "names": [
+            "Crystal.2"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 7,
+          "names": [
+            "PFlower.digest.1"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 8,
+          "names": [
+            "Demon.N.2"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 8,
+          "names": [
+            "PFlower.player.0"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 8,
+          "names": [
+            "SpacerLaser.0"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 9,
+          "names": [
+            "Demon.W.0"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 9,
+          "names": [
+            "PFlower.player.1"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 9,
+          "names": [
+            "SpacerLaser.1"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 10,
+          "names": [
+            "Demon.W.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 10,
+          "names": [
+            "PFlower.player.2"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 11,
+          "names": [
+            "Demon.W.2"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "2.png",
+      "columns": 4,
+      "rows": 15,
+      "width": 576,
+      "height": 2160,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "names": [
+            "Wall.0"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "names": [
+            "Apple"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "names": [
+            "Player.S.0",
+            "Player.sleepy.0",
+            "Player.poisoned.12"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 0,
+          "names": [
+            "Player.poisoned.0"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "names": [
+            "Wall.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "names": [
+            "Ball"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "names": [
+            "Player.sleepy.1"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "names": [
+            "Player.poisoned.1"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "names": [
+            "Wall.2"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "names": [
+            "Wall.10"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "names": [
+            "Player.sleepy.2"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "names": [
+            "Player.poisoned.2"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "names": [
+            "Wall.3"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "names": [
+            "Door"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "names": [
+            "Player.sleepy.3"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "names": [
+            "Player.poisoned.3"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 4,
+          "names": [
+            "Wall.4"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 4,
+          "names": [
+            "Egg"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "names": [
+            "Player.sleepy.4"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 4,
+          "names": [
+            "Player.poisoned.4"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 5,
+          "names": [
+            "Wall.5"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 5,
+          "names": [
+            "Flower.1"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 5,
+          "names": [
+            "Player.E.0"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 5,
+          "names": [
+            "Player.poisoned.5"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 6,
+          "names": [
+            "Wall.6"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "names": [
+            "Flower.0"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 6,
+          "names": [
+            "Player.E.1"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 6,
+          "names": [
+            "Player.poisoned.6"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 7,
+          "names": [
+            "Wall.7"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 7,
+          "names": [
+            "Key"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 7,
+          "names": [
+            "Player.E.2"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 7,
+          "names": [
+            "Player.poisoned.7"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 8,
+          "names": [
+            "Wall.8"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 8,
+          "names": [
+            "LaserGun"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 8,
+          "names": [
+            "Player.S.1"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 8,
+          "names": [
+            "Player.poisoned.8"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 9,
+          "names": [
+            "Wall.9"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 9,
+          "names": [
+            "Mushroom.0"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 9,
+          "names": [
+            "Player.S.2"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 9,
+          "names": [
+            "Player.poisoned.9"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 10,
+          "names": [
+            "Treasure"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 10,
+          "names": [
+            "Mushroom.1"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 10,
+          "names": [
+            "Player.N.1"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 10,
+          "names": [
+            "Player.poisoned.10"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 11,
+          "names": [
+            "Destroyed"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 11,
+          "names": [
+            "Pill"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 11,
+          "names": [
+            "Player.N.0"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 11,
+          "names": [
+            "Player.poisoned.11"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 12,
+          "names": [
+            "Bomb.detonate"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 12,
+          "names": [
+            "Wall.11"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 12,
+          "names": [
+            "Player.N.2"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 12,
+          "names": [
+            "Player.W.0"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 13,
+          "names": [
+            "Player.W.1"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 14,
+          "names": [
+            "Player.W.2"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "3.png",
+      "columns": 4,
+      "rows": 4,
+      "width": 576,
+      "height": 576,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "names": [
+            "SpacerPFlower.grabApple.N"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "names": [
+            "PFlower.grab.S"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "names": [
+            "SpacerPFlower.grabPlayer.N"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 0,
+          "names": []
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "names": [
+            "PFlower.grab.N"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "names": [
+            "SpacerPFlower.grabApple.S"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "names": []
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "names": [
+            "SpacerPFlower.grabPlayer.S"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "names": [
+            "SpacerPFlower.grabApple.W"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "names": [
+            "PFlower.grab.W"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "names": [
+            "SpacerPFlower.grabPlayer.W"
+          ]
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "names": []
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "names": [
+            "PFlower.grab.E"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "names": [
+            "SpacerPFlower.grabApple.E"
+          ]
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "names": []
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "names": [
+            "SpacerPFlower.grabPlayer.E"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "4.png",
+      "columns": 2,
+      "rows": 15,
+      "width": 288,
+      "height": 2160,
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "names": [
+            "PlayerGirl.S.0",
+            "PlayerGirl.sleepy.0",
+            "PlayerGirl.poisoned.12"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "names": [
+            "PlayerGirl.poisoned.0"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "names": [
+            "PlayerGirl.sleepy.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "names": [
+            "PlayerGirl.poisoned.1"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "names": [
+            "PlayerGirl.sleepy.2"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "names": [
+            "PlayerGirl.poisoned.2"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "names": [
+            "PlayerGirl.sleepy.3"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "names": [
+            "PlayerGirl.poisoned.3"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 4,
+          "names": [
+            "PlayerGirl.sleepy.4"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 4,
+          "names": [
+            "PlayerGirl.poisoned.4"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 5,
+          "names": [
+            "PlayerGirl.E.0"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 5,
+          "names": [
+            "PlayerGirl.poisoned.5"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 6,
+          "names": [
+            "PlayerGirl.E.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 6,
+          "names": [
+            "PlayerGirl.poisoned.6"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 7,
+          "names": [
+            "PlayerGirl.E.2"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 7,
+          "names": [
+            "PlayerGirl.poisoned.7"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 8,
+          "names": [
+            "PlayerGirl.S.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 8,
+          "names": [
+            "PlayerGirl.poisoned.8"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 9,
+          "names": [
+            "PlayerGirl.S.2"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 9,
+          "names": [
+            "PlayerGirl.poisoned.9"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 10,
+          "names": [
+            "PlayerGirl.N.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 10,
+          "names": [
+            "PlayerGirl.poisoned.10"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 11,
+          "names": [
+            "PlayerGirl.N.0"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 11,
+          "names": [
+            "PlayerGirl.poisoned.11"
+          ]
+        },
+        {
+          "x": 0,
+          "y": 12,
+          "names": [
+            "PlayerGirl.N.2"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 12,
+          "names": [
+            "PlayerGirl.W.0"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 13,
+          "names": [
+            "PlayerGirl.W.1"
+          ]
+        },
+        {
+          "x": 1,
+          "y": 14,
+          "names": [
+            "PlayerGirl.W.2"
+          ]
+        }
+      ]
+    }
+  ]
+}

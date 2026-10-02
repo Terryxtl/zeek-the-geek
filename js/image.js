@@ -1,20 +1,29 @@
 export const IMAGE_W = 36;
 export const IMAGE_H = 36;
+export const ART_STYLE = new URLSearchParams(window.location.search).get('art') === 'classic' ? 'classic' : 'hd';
+const SOURCE_TILE = ART_STYLE === 'classic' ? 36 : 144;
 export function drawImage(__image, ctx, col, row) {
 	ctx.drawImage(__image.img,
-		(__image.x * IMAGE_W), (__image.y * IMAGE_H), IMAGE_W, IMAGE_H,
+		(__image.x * SOURCE_TILE), (__image.y * SOURCE_TILE), SOURCE_TILE, SOURCE_TILE,
 		Math.floor(col * IMAGE_W), Math.floor(row * IMAGE_H), IMAGE_W, IMAGE_H);
 }
 
 var imageObj = new Array();
 imageObj[0] = new Image();
-imageObj[0].src = 'image/1.gif';
+imageObj[0].src = ART_STYLE === 'classic' ? 'image/1.gif' : 'image/hd/1.png';
 imageObj[1] = new Image();
-imageObj[1].src = 'image/2.gif';
+imageObj[1].src = ART_STYLE === 'classic' ? 'image/2.gif' : 'image/hd/2.png';
 imageObj[2] = new Image();
-imageObj[2].src = 'image/3.gif';
+imageObj[2].src = ART_STYLE === 'classic' ? 'image/3.gif' : 'image/hd/3.png';
 imageObj[3] = new Image();
-imageObj[3].src = 'image/4.gif';
+imageObj[3].src = ART_STYLE === 'classic' ? 'image/4.gif' : 'image/hd/4.png';
+
+// Prevent the first game tick from drawing a partially loaded atlas.
+export const imagesReady = Promise.all(imageObj.map(img => new Promise((resolve, reject) => {
+	img.onload = resolve;
+	img.onerror = () => reject(new Error('Failed to load sprite atlas: ' + img.src));
+	if (img.complete && img.naturalWidth) resolve();
+})));
 
 export const image={
 	undefined:{img:imageObj[0], x:1, y:11},

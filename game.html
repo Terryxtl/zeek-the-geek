@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset='UTF-8'/>
+		<meta name='viewport' content='width=device-width, initial-scale=1'/>
 		<link href="favicon.ico" mce_href="favicon.ico" type="image/x-icon" rel="bookmark"/>
 		<link href="favicon.ico" mce_href="favicon.ico" type="image/x-icon" rel='icon'/>
 		<link href="favicon.ico" mce_href="favicon.ico" type="image/x-icon" rel="shortcut icon"/>
@@ -23,7 +24,8 @@
 		-->
 	</head>
 	<body>
-		<canvas id='stage' width='612px' height='432px'>
+		<div id='gameViewport'>
+		<canvas id='stage' width='612' height='432'>
 			<h1>Oops! Your browser does not support HTML5.</h1>
 			<p>This game requires HTML5. IE8 and earlier IE versions does not support HTML5.</p>
 			<p>For Windows XP users, you must install a browser which supports HTML5, e.g. Firefox, Chrome.</p>
@@ -39,6 +41,7 @@
 		</div>
 		<iframe id='egg'>
 		</iframe>
+		</div>
 
 		<div id='footer'>
 			<div class='item'>
@@ -54,6 +57,16 @@
 			<a class='back' href='index.html'>
 				<input type='button' value='Exit'/>
 			</a>
+		</div>
+		<div id='artToolbar'>
+			<label for='artStyle'>Artwork</label>
+			<select id='artStyle'>
+				<option value='hd'>HD remaster</option>
+				<option value='classic'>Classic 1995</option>
+			</select>
+			<a href='art-preview.html' target='_blank' rel='noopener'>Asset gallery</a>
+			<button id='fullscreen' type='button'>全屏</button>
+			<span id='artStatus' role='status'></span>
 		</div>
 		<script>
 let packMatch=/puzzlePack=([A-Za-z0-9]+)/.exec(location.search);

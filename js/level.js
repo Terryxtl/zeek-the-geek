@@ -96,7 +96,7 @@ export default class Level{
 				document.querySelector('div#paused').style.display='none';
 				document.querySelector('span#score').innerHTML=this.stage.score;
 			} else {
-				document.querySelector('div#paused').style.display=null;
+				document.querySelector('div#paused').style.display='block';
 			}
 
 			//Level finished or continue
@@ -197,10 +197,13 @@ export default class Level{
 		if (this.paused) {
 			return;
 		}
-		let xpos = e.offsetX;
-		let ypos = e.offsetY;
+		const canvas = e.currentTarget;
+		const bounds = canvas.getBoundingClientRect();
+		let xpos = (e.clientX - bounds.left - canvas.clientLeft) * (this.stage.cols * IMAGE_W) / canvas.clientWidth;
+		let ypos = (e.clientY - bounds.top - canvas.clientTop) * (this.stage.rows * IMAGE_H) / canvas.clientHeight;
 		let col = Math.floor(xpos/IMAGE_W);
 		let row = Math.floor(ypos/IMAGE_H);
+		if (col < 0 || row < 0 || col >= this.stage.cols || row >= this.stage.rows) return;
 		if (e.shiftKey) {
 			this.playerRoute[this.playerRouteInUse].push({col:col, row:row});
 		} else {

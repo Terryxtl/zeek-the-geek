@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Zeek the Geek · 高清美术图鉴</title>
+  <style>
+    :root { color-scheme: light; --ink:#172c35; --line:#d8e1df; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#f5f7f3; color:var(--ink); font-family:system-ui,"Microsoft YaHei",sans-serif; }
+    main { max-width:1160px; padding:32px 28px 56px; margin:auto; }
+    nav { display:flex; justify-content:space-between; align-items:center; gap:20px; font-size:13px; }
+    nav strong { letter-spacing:2px; }
+    a { color:inherit; text-underline-offset:4px; }
+    .hero { margin:54px 0 32px; }
+    .eyebrow { font-size:12px; letter-spacing:2px; color:#357068; font-weight:700; }
+    h1 { font-size:clamp(28px,5vw,52px); line-height:1.25; margin:14px 0; letter-spacing:-1px; }
+    .description { color:#61716f; max-width:700px; line-height:1.85; font-size:15px; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+    .tags span { border:1px solid var(--line); border-radius:24px; padding:7px 12px; font-size:12px; background:#fff; }
+    .compare { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 16px; }
+    .card h2 { font-size:16px; margin:0 0 22px; }
+    .pair { display:flex; justify-content:space-around; gap:12px; }
+    figure { margin:0; text-align:center; }
+    figcaption { color:#677773; font-size:11px; margin-top:12px; }
+    .sprite { width:var(--size,96px); height:var(--size,96px); background-repeat:no-repeat; background-color:#fff; }
+    .classic { image-rendering:pixelated; }
+    .toolbar { margin:40px 0 20px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+    .toolbar h2 { margin:0; font-size:24px; }
+    .controls { display:flex; gap:16px; align-items:center; flex-wrap:wrap; font-size:13px; }
+    select { border:1px solid #cbd6d1; border-radius:8px; padding:8px 12px; background:white; color:var(--ink); }
+    input { accent-color:#238c83; width:110px; vertical-align:middle; }
+    section.atlas { border-top:1px solid var(--line); padding:26px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    h3 { margin:0; font-size:17px; }
+    .section-head p { color:#6a7875; font-size:12px; margin:6px 0 0; }
+    .section-head a { font-size:12px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(var(--size,96px),1fr)); gap:10px; }
+    .tile { min-width:0; display:flex; flex-direction:column; align-items:center; padding:8px 0; border:1px solid #e0e6e0; background:white; border-radius:8px; }
+    .tile span { font:10px/1.4 ui-monospace,monospace; color:#71817b; padding-top:8px; }
+    footer { border-top:1px solid var(--line); padding-top:22px; color:#61716f; font-size:12px; line-height:1.8; }
+    @media(max-width:850px) { .compare { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:480px) { main { padding:22px 16px; } .compare { grid-template-columns:1fr; } .hero { margin-top:36px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <nav><strong>ZEEK THE GEEK</strong><a href="index.html">返回游戏首页 ↗</a></nav>
+    <header class="hero">
+      <div class="eyebrow">1995 CLASSIC · HD ART REMASTER</div>
+      <h1>熟悉的冒险，更清晰的模样。</h1>
+      <p class="description">保留青色与紫色软帽、夸张的大眼睛、鲜艳的道具和黑色卡通轮廓。重新绘制角色、机关与场景素材，让经典的小世界在高清屏幕上依然鲜明。</p>
+      <div class="tags"><span>36 → 144 px / 格</span><span>4 张可直接使用的 PNG 图集</span><span>保留原版 GIF</span><span>原有关卡与玩法</span></div>
+    </header>
+    <div class="compare" id="compare"></div>
+    <div class="toolbar">
+      <h2>全部精灵与动画帧</h2>
+      <div class="controls">
+        <label>版本 <select id="version"><option value="hd">高清重绘</option><option value="classic">原版像素</option></select></label>
+        <label>预览大小 <input id="size" type="range" min="48" max="144" step="12" value="96"> <output id="sizeValue">96 px</output></label>
+      </div>
+    </div>
+    <div id="atlases" aria-live="polite">正在加载图集…</div>
+    <footer>所有游戏素材均为白色底图，与原版绘制方式一致。图集保留原坐标，144px 为发布规格；生成原图、精灵坐标和重绘提示词一并保存在 image/hd 中。</footer>
+  </main>
+  <script>
+    const titles = ['敌人、食人花与机关','Zeek、墙体与道具','食人花跨格动作','搭档与状态动画'];
+    let size = 96;
+    function sprite(sheet, x, y, classic, fixedSize) {
+      const el = document.createElement('div');
+      el.className = 'sprite' + (classic ? ' classic' : '');
+      const pixels = fixedSize || size;
+      el.style.setProperty('--size', pixels + 'px');
+      el.style.backgroundImage = `url(image/${classic ? sheet + '.gif' : 'hd/' + sheet + '.png'})`;
+      const columns = [3,4,4,2][sheet-1], rows = [12,15,4,15][sheet-1];
+      el.style.backgroundSize = `${columns*pixels}px ${rows*pixels}px`;
+      el.style.backgroundPosition = `${-x*pixels}px ${-y*pixels}px`;
+      el.setAttribute('role','img');
+      el.setAttribute('aria-label',`图集 ${sheet}，坐标 ${x},${y}，${classic ? '原版' : '高清'}`);
+      return el;
+    }
+    for (const [title,sheet,x,y] of [['Zeek',2,2,0],['搭档',4,0,0],['食人花',1,2,3],['Piclasop',1,0,4]]) {
+      const card = document.createElement('article'); card.className = 'card';
+      const heading = document.createElement('h2'); heading.textContent = title; card.append(heading);
+      const pair = document.createElement('div'); pair.className = 'pair';
+      for (const classic of [true,false]) {
+        const figure = document.createElement('figure'); figure.append(sprite(sheet,x,y,classic,84));
+        const caption = document.createElement('figcaption'); caption.textContent = classic ? '原版 · 36 px' : '重绘 · 144 px';
+        figure.append(caption); pair.append(figure);
+      }
+      card.append(pair); document.querySelector('#compare').append(card);
+    }
+    let manifest;
+    function render() {
+      if (!manifest) return;
+      const container = document.querySelector('#atlases'); container.replaceChildren();
+      const classic = document.querySelector('#version').value === 'classic';
+      for (const [index,sheet] of manifest.sheets.entries()) {
+        const section = document.createElement('section'); section.className = 'atlas';
+        const head = document.createElement('div'); head.className = 'section-head';
+        const text = document.createElement('div');
+        const heading = document.createElement('h3'); heading.textContent = `${String(index+1).padStart(2,'0')} / ${titles[index]}`;
+        const description = document.createElement('p'); description.textContent = `${sheet.width} × ${sheet.height} px · ${sheet.frames.length} 个非空帧`;
+        text.append(heading,description);
+        const download = document.createElement('a'); download.href = `image/hd/${sheet.file}`; download.download = sheet.file; download.textContent = '下载高清 PNG ↓';
+        head.append(text,download); section.append(head);
+        const grid = document.createElement('div'); grid.className = 'grid'; grid.style.setProperty('--size',size+'px');
+        for (const frame of sheet.frames) {
+          const tile = document.createElement('div'); tile.className = 'tile'; tile.title = frame.names.join(' / ') || `(${frame.x}, ${frame.y})`;
+          tile.append(sprite(index+1,frame.x,frame.y,classic));
+          const label = document.createElement('span'); label.textContent = `${frame.x}, ${frame.y}`; tile.append(label); grid.append(tile);
+        }
+        section.append(grid); container.append(section);
+      }
+    }
+    document.querySelector('#version').addEventListener('change',render);
+    document.querySelector('#size').addEventListener('input',event=>{size=Number(event.target.value);document.querySelector('#sizeValue').textContent=size+' px';render();});
+    fetch('image/hd/manifest.json').then(response=>{if(!response.ok)throw new Error('Load failed');return response.json();})
+      .then(data=>{manifest=data;render();}).catch(()=>{document.querySelector('#atlases').textContent='图集加载失败，请刷新页面。';});
+  </script>
+</body>
+</html>

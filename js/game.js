@@ -37,6 +37,8 @@ import {
 import{
 	IMAGE_W,
 	IMAGE_H,
+	ART_STYLE,
+	imagesReady,
 } from './image';
 
 Object.assign(window,{
@@ -92,7 +94,64 @@ function puzzlePackFinished(packName, totalScore){
 	}
 }
 export default function(packName, levelData) {
-	var ctx = document.querySelector('canvas#stage').getContext('2d');
+	var canvas = document.querySelector('canvas#stage');
+	var ctx = canvas.getContext('2d');
+	const fitBoard = () => {
+		const controlsHeight = document.querySelector('#footer').getBoundingClientRect().height
+			+ document.querySelector('#artToolbar').getBoundingClientRect().height;
+		const availableHeight = Math.max(120, window.innerHeight - Math.max(120, controlsHeight + 64));
+		const width = Math.max(1, Math.min(window.innerWidth - 34, availableHeight * 17 / 12, 2448));
+		document.body.style.setProperty('--board-width', Math.floor(width) + 'px');
+	};
+	const resizeCanvas = () => {
+		const bounds = canvas.getBoundingClientRect();
+		const density = window.devicePixelRatio || 1;
+		const width = Math.min(2448, Math.max(1, Math.round((bounds.width - 2) * density)));
+		const height = Math.max(1, Math.round(width * 12 / 17));
+		if (canvas.width === width && canvas.height === height) return;
+		canvas.width = width;
+		canvas.height = height;
+		ctx.setTransform(width / 612, 0, 0, height / 432, 0, 0);
+		ctx.imageSmoothingEnabled = ART_STYLE !== 'classic';
+		// Resizing clears the canvas. Preserve the visible board while paused.
+		imagesReady.then(() => {
+			const stage = levelData[Number(document.querySelector('#level').textContent || 1) - 1];
+			if (stage && canvas.offsetWidth) stage.draw(ctx);
+		}).catch(() => {});
+	};
+	fitBoard();
+	resizeCanvas();
+	new ResizeObserver(resizeCanvas).observe(canvas);
+	window.addEventListener('resize', fitBoard);
+	const fullscreenButton = document.querySelector('#fullscreen');
+	fullscreenButton.addEventListener('click', async () => {
+		try {
+			if (document.fullscreenElement) await document.exitFullscreen();
+			else await document.documentElement.requestFullscreen();
+		} catch (error) {
+			document.querySelector('#artStatus').textContent = '无法进入全屏，请使用浏览器的全屏功能。';
+		}
+	});
+	document.addEventListener('fullscreenchange', () => {
+		fullscreenButton.textContent = document.fullscreenElement ? '退出全屏' : '全屏';
+		fitBoard();
+	});
+	const artSelect = document.querySelector('#artStyle');
+	if (artSelect) {
+		artSelect.value = ART_STYLE;
+		artSelect.addEventListener('change', () => {
+			const url = new URL(window.location.href);
+			url.searchParams.set('art', artSelect.value);
+			window.location.href = url.href;
+		});
+	}
+	imagesReady.then(() => startGame(packName, levelData, ctx)).catch(error => {
+		console.error(error);
+		document.querySelector('#artStatus').textContent = 'Artwork failed to load. Please reload or choose Classic.';
+	});
+}
+
+function startGame(packName, levelData, ctx) {
 	var totalScore = 0;
 	var levelNum = 0;
 

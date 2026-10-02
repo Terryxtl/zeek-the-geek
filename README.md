@@ -11,3 +11,21 @@ Technical Information
 **localStorage** is used to store settings and gaming progress for each puzzle pack.
 
 All the gaming engine related code are at `js` folder, then packed and compressed into `game.js` via **rollup**.
+
+HD Artwork
+----------
+
+The game now defaults to redrawn 4x cartoon sprite atlases, keeping the original
+characters and palette. Use the Artwork selector below the board to switch to
+the original GIFs. Open `art-preview.html` for side-by-side comparisons, all
+131 nonempty sprite frames, and PNG downloads. See `image/hd/README.md` for
+atlas specifications, the source artwork and exact generation prompts.
+
+HD Artwork
+----------
+
+The game now defaults to redrawn 4x cartoon sprite atlases, keeping the original
+characters and palette. Use the Artwork selector below the board to switch to
+the original GIFs. Open `art-preview.html` for side-by-side comparisons, all
+131 nonempty sprite frames, and PNG downloads. See `image/hd/README.md` for
+atlas specifications, the source artwork and exact generation prompts.
